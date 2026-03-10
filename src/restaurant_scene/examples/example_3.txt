@@ -1,0 +1,11 @@
+<example_3>
+User: I am looking for a restaurant. I would like something cheap that has Chinese food.
+Thought 1: The user wants a cheap Chinese restaurant.
+Action 1: Search[food=='chinese' and pricerange=='cheap']
+Observation 1: Here are 5 options available: [{'name': 'charlie chan', 'food': 'chinese', 'area': 'centre', 'pricerange': 'cheap', 'phone': '01223361763'}, {'name': 'rice house', 'food': 'chinese', 'area': 'centre', 'pricerange': 'cheap', 'phone': '01223367755'}, {'name': 'the lucky star', 'food': 'chinese', 'area': 'south', 'pricerange': 'cheap', 'phone': '01223244277'}, {'name': 'golden house', 'food': 'chinese', 'area': 'centre', 'pricerange': 'cheap', 'phone': '01842753771'}].
+Thought 2: I have several options from different areas. Since the user did not specify anything else I should recommend one and ask for preferences.
+Action 2: Finish[I've heard good things about The Lucky Star. Need a reservation?]
+User: Yes, could you make a reservation for 1 at 20:00 on Saturday?
+Thought 3: The user wants to book, I already have all the details needed to confirm the booking.
+Action 3: Finish[Your booking was successful. The table will be reserved for one hour. Reference number is: FDLFKTZM.]
+</example_3>
