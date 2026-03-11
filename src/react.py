@@ -50,7 +50,7 @@ class TravelScene:
         matches = re.findall(r"(\w+)==['\"]?([^'\"&\s]+)['\"]?", query)
         for key, value in matches:
             if ',' in value:
-                params[key] = value.split(',') #List of values
+                params[key] = [v.strip() for v in value.split(',')] #List of values
             else:
                 params[key] = value
         return params

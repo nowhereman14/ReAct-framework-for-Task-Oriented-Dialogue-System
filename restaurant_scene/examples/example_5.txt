@@ -6,7 +6,7 @@ Observation 1: Here are 5 results: [{'address': '106 Regent Street City Centre',
 Thought 2: I found several options. I should present some and ask if they have a food preference to narrow it down.
 Action 2: Finish[I sure can. There are lots of choices. Are you looking for a particular type of food?]
 Thought 3: The user wants something different but has no specific preference. I should search for more unusual cuisines in the centre.
-Action 3: Search[area=='centre' and pricerange=='expensive' and food=='korean, japanese, thai']
+Action 3: Search[area=='centre' and pricerange=='expensive' and food=='korean,japanese,thai']
 Observation 3: I have 3 options: [{'name': 'little seoul', 'food': 'korean', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223308681'}, {'name': 'wagamama', 'food': 'japanese', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223462354'}, {'name': 'bangkok city', 'food': 'thai', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223354382'}]
 Thought 4: I found a Korean restaurant which is quite unique. I should recommend it to the user.
 Action 4: Finish[There is a Korean restaurant called Little Seoul located at 108 Regent Street City Centre. Would you like their phone number?]

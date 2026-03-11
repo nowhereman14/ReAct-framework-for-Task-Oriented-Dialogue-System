@@ -17,11 +17,22 @@ if args.domain == 'hotel':
 else:
     from restaurant_scene.prompt_restaurant import load_prompt
 
+from openai import OpenAI
+from groq import Groq
 
 load_dotenv()
-client = Groq(api_key= os.getenv("GROQ_API_KEY"))
+
+client = OpenAI(
+    api_key=os.getenv("FIREWORKS_API_KEY"),
+    base_url="https://api.fireworks.ai/inference/v1"
+)
+#client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+'''client = OpenAI(
+    api_key= os.getenv("OPEN_ROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1"
+)'''
 API_URL = os.getenv("API_URL")
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct" #meta-llama/llama-3.3-70b-instruct:free" #llama-3.3-70b-versatile
 SYSTEM_PROMPT = load_prompt()
 
 if __name__ == "__main__":

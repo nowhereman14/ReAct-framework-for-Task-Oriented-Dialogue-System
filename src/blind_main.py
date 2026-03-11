@@ -5,11 +5,14 @@ import requests
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from dotenv import load_dotenv
-from groq import Groq
+from openai import OpenAI
 
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL = "llama-3.3-70b-versatile"
+client = OpenAI(
+    api_key= os.getenv("OPEN_ROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1"
+)
+MODEL = "meta-llama/llama-3.3-70b-instruct:free"
 
 SYSTEM_PROMPT = """You are a travel assistant helping users find hotels in Cambridge. 
 Answer user questions helpfully and naturally."""

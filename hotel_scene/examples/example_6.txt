@@ -1,0 +1,11 @@
+<example_6>
+User: Which has more stars, Hamilton Lodge or Bridge Guest House?
+Thought 1: The user wants to compare the stars of two hotels. I should search for each one separately.
+Action 1: Search[name=='hamilton lodge']
+Observation 1: Here are 1 results matching your query: [{'name': 'hamilton lodge', 'type': 'guesthouse', 'area': 'north', 'pricerange': 'moderate', 'stars': '3', 'parking': 'yes', 'internet': 'yes', 'phone': '01223365664'}]
+Thought 2: Hamilton Lodge has 3 stars. Now I should search for Bridge Guest House.
+Action 2: Search[name=='bridge guest house']
+Observation 2: Here are 1 results matching your query: [{'name': 'bridge guest house', 'type': 'guesthouse', 'area': 'south', 'pricerange': 'moderate', 'stars': '3', 'parking': 'yes', 'internet': 'yes', 'phone': '01223247942'}]
+Thought 3: Both hotels have 3 stars. I can now answer the user.
+Action 3: Finish[Both Hamilton Lodge and Bridge Guest House have 3 stars, so they are equal in that regard.]
+</example_6>
