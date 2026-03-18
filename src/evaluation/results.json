@@ -1,0 +1,212 @@
+{
+    "global": {
+        "BLEU4_mean": 0.07778989773857234,
+        "BLEU4_err": 0.004647009305236232,
+        "ROUGE_mean": 0.3098787272811579,
+        "ROUGE_err": 0.03636731574047869,
+        "Inform_rate_mean": 0.6944444444444444,
+        "Inform_rate_err": 0.09733238908161408,
+        "Combined_score_mean": 0.4250121199607945,
+        "Combined_score_err": 0.05042949994873511
+    },
+    "instances": [
+        {
+            "id": "restaurant_001",
+            "intent": "INFORM:REFINE",
+            "history": "User: I need a cheap restaurant in the north.\nSystem: I found several options. Do you have a food preference?\nUser: I'd like Chinese food.",
+            "predicted_finish": "I couldn't find a cheap Chinese restaurant in the north, but there are some cheap Chinese options in the centre, such as Charlie Chan and Rice House. Would you like to consider one of these options?",
+            "expected_finish": "Golden Wok is a cheap Chinese restaurant in the north.",
+            "BLEU4": 0.07918725283941637,
+            "ROUGE": 0.2978723404255319,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5791872528394164
+        },
+        {
+            "id": "restaurant_002",
+            "intent": "INFORM:FALLBACK",
+            "history": "User: Are there any good Scottish restaurants in the centre?\nSystem: I'm sorry I have no results for a scottish restaurant in the centre area. Is there another type of cuisine you'd like to try for?\nUser: How about italian food?",
+            "predicted_finish": "Yes, there are several Italian options in the centre. We have Pizza Hut City Centre, Stazione Restaurant and Coffee Bar, Pizza Express, Ask Restaurant, and Zizzi Cambridge. Are you looking for something cheap, moderate, or expensive?",
+            "expected_finish": "I have several in the area, is there a price range you prefer?",
+            "BLEU4": 0.07489474243176718,
+            "ROUGE": 0.163265306122449,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5748947424317672
+        },
+        {
+            "id": "restaurant_003",
+            "intent": "REQUEST:GET",
+            "history": "User: I need a cheap place to dine please\nSystem: We have 22 inexpensive restaurants. What sort of cuisine would you like?\nUser: I don't care about the type of food. I need a reservation for Wednesday.",
+            "predicted_finish": "I've heard good things about Charlie Chan. Would you like to make a reservation there for Wednesday?",
+            "expected_finish": "I can book you for dojo noodle bar, how many should I book for and what is the preferred time?",
+            "BLEU4": 0.09317113289059441,
+            "ROUGE": 0.15789473684210525,
+            "Inform-rate": 0.0,
+            "Combined score": 0.09317113289059441
+        },
+        {
+            "id": "restaurant_004",
+            "intent": "INFORM:FALLBACK",
+            "history": "User: I need a restaurant that serves catalan food and it should be in the west.\nSystem: Unfortunately, I'm not finding any Catalan restaurants in the west. Would you like me to look in other areas?\nUser: Is there another high-end restaurant in the west area that you can recommend?",
+            "predicted_finish": "I've heard good things about Sala Thong. It's a Thai restaurant in the west area. Would you like to try it?",
+            "expected_finish": "Cocum is an expensive restaurant on the west part of town serving Indian food. Would you like more information or reserve a table?",
+            "BLEU4": 0.09190417704591612,
+            "ROUGE": 0.2608695652173913,
+            "Inform-rate": 0.5,
+            "Combined score": 0.34190417704591614
+        },
+        {
+            "id": "restaurant_005",
+            "intent": "ASK:GET",
+            "history": "User: I need a cheap Chinese restaurant in the north.\nSystem: I found Golden Wok, a cheap Chinese restaurant in the north. Would you like more information?\nUser: What is their phone number?",
+            "predicted_finish": "Unfortunately, I couldn't find a cheap Chinese restaurant in the north. However, I can offer you Golden Wok, a moderate Chinese restaurant in the area. Their phone number is 01223350688. Would you like to consider this option?",
+            "expected_finish": "Golden Wok's phone number is 01223350688.",
+            "BLEU4": 0.07532833372668257,
+            "ROUGE": 0.26666666666666666,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5753283337266826
+        },
+        {
+            "id": "restaurant_007",
+            "intent": "REQUEST:GET",
+            "history": "User: Hello, I'm looking for an expensive restaurant located in the south part of town.",
+            "predicted_finish": "I've found several options for you. There's The Good Luck Chinese Food Takeaway, Taj Tandoori for Indian food, Chiquito Restaurant Bar for Mexican, Peking Restaurant for Chinese, and Frankie and Bennys for Italian. Are you looking for a specific type of cuisine?",
+            "expected_finish": "I have several options, do you want a particular food type?",
+            "BLEU4": 0.07898867700735618,
+            "ROUGE": 0.21818181818181817,
+            "Inform-rate": 0.0,
+            "Combined score": 0.07898867700735618
+        },
+        {
+            "id": "restaurant_008",
+            "intent": "REQUEST:GET",
+            "history": "User: Hello, I'm looking for an expensive restaurant located in the south part of town.\nSystem: Do you want particular food type?\nUser: I don't care\nSystem: Chiquito restaurant bar serves mexican food, in the expensive price range and in the south part of town\nUser: Are there any other options?",
+            "predicted_finish": "There are several options available. We have The Good Luck Chinese Food Takeaway, Taj Tandoori, Peking Restaurant, and Frankie and Bennys. Would you like to try any of these or would you like more information about them?",
+            "expected_finish": "Frankie and Bennys serves italian food, in the expensive price range and it is in the south part of town. Is there anything else I can help you with?",
+            "BLEU4": 0.07854719760075568,
+            "ROUGE": 0.15151515151515152,
+            "Inform-rate": 0.0,
+            "Combined score": 0.07854719760075568
+        },
+        {
+            "id": "restaurant_009",
+            "intent": "ASK:GET",
+            "history": "User: I need some information about Clowns Cafe please",
+            "predicted_finish": "Clowns Cafe is an Italian restaurant located in the centre. Their phone number is 01223355711. Would you like to make a reservation or need more information?",
+            "expected_finish": "Clowns Cafe is an Italian restaurant located in the centre. It has an expensive price range. Would you like to book a table or need more information?",
+            "BLEU4": 0.0854613968827531,
+            "ROUGE": 0.7169811320754716,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5854613968827531
+        },
+        {
+            "id": "restaurant_011",
+            "intent": "INFORM:GET",
+            "history": "User: I really liked the Thai food at Sala Thong, do you have anything similar but in the centre of the city?",
+            "predicted_finish": "Yes, there is a Thai restaurant in the centre called Bangkok City. Would you like their phone number or would you like to book a table?",
+            "expected_finish": "Bangkok City is a Thai restaurant in the centre. Would you like more information?",
+            "BLEU4": 0.08922051861385989,
+            "ROUGE": 0.5,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5892205186138599
+        },
+        {
+            "id": "restaurant_012",
+            "intent": "ASK:GET",
+            "history": "User: I'm looking for an Italian restaurant in the west.\nSystem: La Margherita is an Italian restaurant in the west of town. Would you like more information?\nUser: What is the address?",
+            "predicted_finish": "Unfortunately, I don't have the specific address of La Margherita in my current database. However, I can offer you its phone number, 01223315232, and you can call them to inquire about their address or make a reservation.",
+            "expected_finish": "La Margherita is located on Magdalene Street in the centre of town.",
+            "BLEU4": 0.07824810874311128,
+            "ROUGE": 0.11999999999999998,
+            "Inform-rate": 0.5,
+            "Combined score": 0.3282481087431113
+        },
+        {
+            "id": "restaurant_013",
+            "intent": "ASK:GET",
+            "history": "User: I'm looking for a cheap restaurant in the south.\nSystem: The Lucky Star is a cheap Chinese restaurant in the south. Would you like more information?\nUser: Can I get their phone number?",
+            "predicted_finish": "The phone number for The Lucky Star is 01223244277. Would you like to make a reservation?",
+            "expected_finish": "Sure, their phone number is 01223244277",
+            "BLEU4": 0,
+            "ROUGE": 0.36363636363636365,
+            "Inform-rate": 0.0,
+            "Combined score": 0.0
+        },
+        {
+            "id": "restaurant_014",
+            "intent": "INFORM:REFINE",
+            "history": "User: I'm looking for a restaurant in the west.\nSystem: I found several restaurants in the west. Do you have a price preference?\nUser: I'd prefer something expensive.",
+            "predicted_finish": "I've found several expensive options in the west. We have Tandoori Palace, Cocum, Rice Boat, Maharajah Tandoori Restaurant, and Sala Thong. Are you looking for a specific type of food, such as Indian or Thai?",
+            "expected_finish": "Graffiti is an expensive restaurant located in the west of town. Would you like more information?",
+            "BLEU4": 0.08116760716713906,
+            "ROUGE": 0.1923076923076923,
+            "Inform-rate": 1.0,
+            "Combined score": 0.581167607167139
+        },
+        {
+            "id": "restaurant_015",
+            "intent": "INFORM:REFINE",
+            "history": "User: I'm looking for a cheap restaurant.\nSystem: I found several cheap restaurants. Do you have a preferred area?\nUser: Yes, it should be in the south.",
+            "predicted_finish": "There are two cheap options in the south area: Nandos, which serves Portuguese food, and The Lucky Star, which serves Chinese food. Do you have a preference for one of these options or would you like me to recommend one?",
+            "expected_finish": "The Lucky Star is a cheap Chinese restaurant in the east. Would you like more information?",
+            "BLEU4": 0.07768736519249937,
+            "ROUGE": 0.24999999999999994,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5776873651924994
+        },
+        {
+            "id": "restaurant_016",
+            "intent": "INFORM:GET",
+            "history": "User: I liked the food at Pizza Hut. Do you have something similar in the north part of town?",
+            "predicted_finish": "I've found a similar Italian restaurant in the north part of town called Da Vinci Pizzeria. Would you like their phone number or to make a reservation?",
+            "expected_finish": "Da Vinci Pizzeria is an Italian restaurant in the north part of town. Would you like more information?",
+            "BLEU4": 0.09272602425656384,
+            "ROUGE": 0.4782608695652174,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5927260242565638
+        },
+        {
+            "id": "restaurant_017",
+            "intent": "INFORM:GET",
+            "history": "User: I enjoyed the Chinese food at Golden Wok. Is there something similar but cheaper?",
+            "predicted_finish": "There are several cheaper Chinese options available, such as Charlie Chan, Rice House, The Lucky Star, and Golden House. Would you like me to recommend one based on location?",
+            "expected_finish": "The Lucky Star is a cheap Chinese restaurant. Would you like more information?",
+            "BLEU4": 0.07785396380000544,
+            "ROUGE": 0.28571428571428575,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5778539638000054
+        },
+        {
+            "id": "restaurant_018",
+            "intent": "REQUEST:BOOK",
+            "history": "User: I'm looking for an Italian restaurant in the centre.\nSystem: La Margherita is an Italian restaurant in the centre. Would you like me to book a table?\nUser: Yes please, book a table for four at 7 pm.",
+            "predicted_finish": "Your booking at La Margherita is confirmed for 4 people at 7 pm. Would you like me to provide you with the address and phone number of the restaurant?",
+            "expected_finish": "Your table for four at La Margherita at 7 pm has been successfully booked.",
+            "BLEU4": 0.07941848432128963,
+            "ROUGE": 0.32558139534883723,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5794184843212896
+        },
+        {
+            "id": "restaurant_019",
+            "intent": "REQUEST:BOOK",
+            "history": "User: I want to dine at Golden Wok tonight.\nSystem: Golden Wok is available. Would you like me to reserve a table?\nUser: Yes, please reserve a table for two at 6 pm.",
+            "predicted_finish": "Your booking was successful, and your reference number is GW123. The table will be reserved for 6 pm tonight for 2 people. Is there anything else I can help you with?",
+            "expected_finish": "Your reservation for two at Golden Wok at 6 pm is confirmed.",
+            "BLEU4": 0.08152615091306033,
+            "ROUGE": 0.27906976744186046,
+            "Inform-rate": 1.0,
+            "Combined score": 0.5815261509130604
+        },
+        {
+            "id": "restaurant_020",
+            "intent": "REQUEST:COMPARE",
+            "history": "User: I'm looking for a Chinese restaurant in the north.\nSystem: I found Golden Wok and Hakka.\nUser: Which one is cheaper?",
+            "predicted_finish": "Golden Wok is cheaper \u2014 it is in the moderate price range, while Hakka is in the expensive price range.",
+            "expected_finish": "Hakka is in the expensive price range, while Golden Wok is in the cheap price range. Therefore, Golden Wok is cheaper.",
+            "BLEU4": 0.08488702586153167,
+            "ROUGE": 0.5500000000000002,
+            "Inform-rate": 0.5,
+            "Combined score": 0.3348870258615317
+        }
+    ]
+}
