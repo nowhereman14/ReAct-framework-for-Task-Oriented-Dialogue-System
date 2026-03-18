@@ -2,8 +2,7 @@
 ReAct implementation
 """
 import os
-from string import Template
-from typing import Any, Literal
+from typing import Literal
 import pandas as pd
 import re
 import requests as req
@@ -47,8 +46,9 @@ class TravelScene:
         Ex: "stars=='3' and pricerange=='cheap'" → {"stars": "3", "pricerange": "cheap"}
         """
         params = {}
-        matches = re.findall(r"(\w+)==['\"]?([^'\"&\s]+)['\"]?", query)
+        matches = re.findall(r"(\w+)\s*==\s*['\"]?([^'\"&]+)['\"]?", query)
         for key, value in matches:
+            value = value.strip()
             if ',' in value:
                 params[key] = [v.strip() for v in value.split(',')] #List of values
             else:
@@ -110,7 +110,8 @@ def react_process(prompt: str,
             model = model,
             messages = [{'role': 'user', 'content': start_text}],
             max_tokens = 200,
-            stop=stop[:4] if stop else None 
+            stop=stop[:4] if stop else None,
+            temperature=0
         )
         result = response.choices[0].message.content
         # Avoid the trailing end of the "User:", "Observation:", etc.
