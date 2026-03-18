@@ -1,0 +1,11 @@
+<example_6>
+User: Which is more expensive, Curry Garden or Kohinoor?
+Thought 1: The user wants to compare the prices of two restaurants. I should search for each one separately.
+Action 1: Search[name=='curry garden']
+Observation 1: Here are 1 results matching your query: [{'name': 'curry garden', 'food': 'indian', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223302330'}]
+Thought 2: Curry Garden is expensive. Now I should search for Kohinoor.
+Action 2: Search[name=='kohinoor']
+Observation 2: Here are 1 results matching your query: [{'name': 'kohinoor', 'food': 'indian', 'area': 'centre', 'pricerange': 'cheap', 'phone': '01223323639'}]
+Thought 3: Kohinoor is cheap and Curry Garden is expensive. I can now compare them and answer the user.
+Action 3: Finish[Curry Garden is more expensive — it is in the expensive price range, while Kohinoor is in the cheap price range.]
+</example_6>

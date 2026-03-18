@@ -1,0 +1,23 @@
+<example_1>
+User: I need a place to dine.
+Thought 1: The user hasn't given any attributes like area or food type. I should see what is available first.
+Action 1: Look[]
+Observation 1: Here are 5 options available: [{'name': 'the missing sock', 'food': 'international', 'area': 'east'}, {'name': 'yu garden', 'food': 'chinese', 'area': 'east'}, {'name': 'taj tandoori', 'food': 'indian', 'area': 'south'}, {'name': 'da vinci pizzeria', 'food': 'italian', 'area': 'north'}, {'name': 'tandoori palace', 'food': 'indian', 'area': 'west'}]
+Thought 2: I have several options from different areas. The user hasn't specified preferences yet so I should ask.
+Action 2: Finish[I have several options for you; do you prefer Italian, Thai or Spanish food?]
+User: Any sort of food would be fine, as long as it is a bit expensive and it is located in the centre.
+Thought 3:  The user wants an expensive restaurant located in the centre. I should search by area and pricerange.
+Action 3: Search[area=='centre' and pricerange=='expensive']
+Observation 3: Here are 32 results matching your query: [{'name': 'curry garden', 'food': 'indian', 'pricerange': 'expensive', 'phone': '01223302330'}, {'name': 'stazione restaurant and coffee bar', 'food': 'italian', 'pricerange': 'expensive', 'phone': '01223352607'}, {'name': 'eraina', 'food': 'european', 'pricerange': 'expensive', 'phone': '01223368786'}, {'name': 'bedouin', 'food': 'african', 'pricerange': 'expensive', 'phone': '01223367660'}, {'name': 'midsummer house restaurant', 'food': 'british', 'pricerange': 'expensive', 'phone': '01223369299'}, ...]
+Thought 4: I found some expensive restaurants. I should recommend one and ask for preferences.
+Action 4: Finish[I have several options for you; do you prefer Italian, European, or African food?]
+User: Any sort of food would be fine, as long as it is a bit expensive. Could I get the phone number for your recommendation?
+Thought 5: The user wants a phone number for the recommendation. I already retrieved Bedouin's phone number in Observation 3 so I don't need to search again.
+Action 5: Finish[There is an African place named Bedouin in the centre. Their phone number is 01223367660. Would you like me to book it?]
+User: Can you book it for me?
+Thought 6: The user wants to book. I need more details — how many people and what day.
+Action 6: Finish[Sure, when would you like that reservation and for how many people?]
+User: I want to book it for 2 people this Saturday.
+Thought 7: I have all the details needed to confirm the booking.
+Action 7: Finish[Your booking was successful. Your reference number is FRGZWQL2. May I help you further?]
+</example_1>
