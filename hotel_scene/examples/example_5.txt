@@ -1,6 +1,0 @@
-<example_5>
-User: Hello, I would like an expensive hotel with free parking.
-Action 1: Finish[I have places that fit that description all over town, except in the north. If area is no concern, I recommend the Gonville in the center of town]
-User: Is it four star?
-Action 2: Finish[No, it only 3 stars. The Huntington Marriott is 4 stars though. It is also expensive and has free parking and internet.]
-</example_5>
