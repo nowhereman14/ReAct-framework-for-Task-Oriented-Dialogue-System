@@ -1,0 +1,209 @@
+[
+    {
+        "id": "restaurant_001",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: I need a cheap restaurant in the north.\nSystem: I found several options. Do you have a food preference?\nUser: I'd like Chinese food.",
+        "expected_actions": ["Search[food=='chinese' and area=='north' and pricerange=='cheap']"],
+        "expected_finish": "Golden Wok is a cheap Chinese restaurant in the north.",
+        "gold_entities": {
+            "food": "chinese",
+            "area": "north",
+            "pricerange": "cheap"
+            }
+    },
+    {
+        "id": "restaurant_002",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "User: Are there any good Scottish restaurants in the centre?\nSystem: I'm sorry I have no results for a scottish restaurant in the centre area. Is there another type of cuisine you'd like to try for?\nUser: How about italian food?",
+        "expected_actions": ["Search[food=='italian' and area=='centre']"],
+        "expected_finish": "I have several in the area, is there a price range you prefer?",
+        "gold_entities": {
+            "food": "italian",
+            "area": "centre"
+        }
+    },
+    {
+        "id": "restaurant_003",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: I need a cheap place to dine please\nSystem: We have 22 inexpensive restaurants. What sort of cuisine would you like?\nUser: I don't care about the type of food. I need a reservation for Wednesday.",
+        "expected_actions": ["Search[pricerange=='cheap']"],
+        "expected_finish": "I can book you for dojo noodle bar, how many should I book for and what is the preferred time?",
+        "gold_entities": {
+            "pricerange":"cheap"
+        }
+    },
+    {
+        "id": "restaurant_004",
+        "domain": "restaurant",
+        "intent":"INFORM:FALLBACK",
+        "history": "User: I need a restaurant that serves catalan food and it should be in the west.\nSystem: Unfortunately, I'm not finding any Catalan restaurants in the west. Would you like me to look in other areas?\nUser: Is there another high-end restaurant in the west area that you can recommend?",
+        "expected_actions": ["Search[area=='west' and pricerange=='expensive']"],
+        "expected_finish": "Cocum is an expensive restaurant on the west part of town serving Indian food. Would you like more information or reserve a table?",
+        "gold_entities": {
+            "area":"west",
+            "pricerange":"expensive"
+        }
+    },
+    {
+        "id": "restaurant_005",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: I need a cheap Chinese restaurant in the north.\nSystem: I found Golden Wok, a cheap Chinese restaurant in the north. Would you like more information?\nUser: What is their phone number?",
+        "expected_actions": [],
+        "expected_finish": "Golden Wok's phone number is 01223350688.",
+        "gold_entities": {
+            "phone": "01223350688"
+        }
+    },
+    {
+        "id": "restaurant_007",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Hello, I'm looking for an expensive restaurant located in the south part of town.",
+        "expected_actions": ["Search[area=='south' and pricerange=='expensive']"],
+        "expected_finish": "I have several options, do you want a particular food type?",
+        "gold_entities": {
+            "area":"south",
+            "pricerange":"expensive"
+        }
+    },
+    {
+        "id": "restaurant_008",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Hello, I'm looking for an expensive restaurant located in the south part of town.\nSystem: Do you want particular food type?\nUser: I don't care\nSystem: Chiquito restaurant bar serves mexican food, in the expensive price range and in the south part of town\nUser: Are there any other options?",
+        "expected_actions": ["Search[area=='south' and pricerange=='expensive']"],
+        "expected_finish": "Frankie and Bennys serves italian food, in the expensive price range and it is in the south part of town. Is there anything else I can help you with?",
+        "gold_entities": {
+            "area":"south",
+            "pricerange":"expensive"
+        }
+    },
+    {
+        "id": "restaurant_009",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: I need some information about Clowns Cafe please",
+        "expected_finish": "Clowns Cafe is an Italian restaurant located in the centre. It has an expensive price range. Would you like to book a table or need more information?",
+        "gold_entities": {
+            "name": "clowns cafe"
+        }
+    },
+    {
+        "id": "restaurant_011",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: I really liked the Thai food at Sala Thong, do you have anything similar but in the centre of the city?",
+        "expected_actions": ["Search[food=='thai' and area=='centre']"],
+        "expected_finish": "Bangkok City is a Thai restaurant in the centre. Would you like more information?",
+        "gold_entities": {
+            "food": "thai",
+            "area": "centre"
+        }
+    },
+    {
+        "id": "restaurant_012",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: I'm looking for an Italian restaurant in the west.\nSystem: La Margherita is an Italian restaurant in the west of town. Would you like more information?\nUser: What is the address?",
+        "expected_actions": ["Search[name=='la margherita']"],
+        "expected_finish": "La Margherita is located on Magdalene Street in the centre of town.",
+        "gold_entities": {
+            "name": "la margherita",
+            "address": "Magdalene Street"
+        }
+    },
+    {
+        "id": "restaurant_013",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: I'm looking for a cheap restaurant in the south.\nSystem: The Lucky Star is a cheap Chinese restaurant in the south. Would you like more information?\nUser: Can I get their phone number?",
+        "expected_actions": ["Search[name=='the lucky star']"],
+        "expected_finish": "Sure, their phone number is 01223244277",
+        "gold_entities": {
+            "food": "chinese"
+        }
+    },
+    {
+        "id": "restaurant_014",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: I'm looking for a restaurant in the west.\nSystem: I found several restaurants in the west. Do you have a price preference?\nUser: I'd prefer something expensive.",
+        "expected_actions": ["Search[area=='west' and pricerange=='expensive']"],
+        "expected_finish": "Graffiti is an expensive restaurant located in the west of town. Would you like more information?",
+        "gold_entities": {
+            "area": "west",
+            "pricerange": "expensive"
+        }
+    },
+    {
+        "id": "restaurant_015",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: I'm looking for a cheap restaurant.\nSystem: I found several cheap restaurants. Do you have a preferred area?\nUser: Yes, it should be in the south.",
+        "expected_actions": ["Search[pricerange=='cheap' and area=='south']"],
+        "expected_finish": "The Lucky Star is a cheap Chinese restaurant in the east. Would you like more information?",
+        "gold_entities": {
+            "pricerange": "cheap",
+            "area": "south"
+        }
+    },
+    {
+        "id": "restaurant_016",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: I liked the food at Pizza Hut. Do you have something similar in the north part of town?",
+        "expected_actions": ["Search[food=='italian' and area=='north']"],
+        "expected_finish": "Da Vinci Pizzeria is an Italian restaurant in the north part of town. Would you like more information?",
+        "gold_entities": {
+            "food": "italian",
+            "area": "north"
+        }
+    },
+    {
+        "id": "restaurant_017",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: I enjoyed the Chinese food at Golden Wok. Is there something similar but cheaper?",
+        "expected_actions": ["Search[food=='chinese' and pricerange=='cheap']"],
+        "expected_finish": "The Lucky Star is a cheap Chinese restaurant. Would you like more information?",
+        "gold_entities": {
+            "food": "chinese",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "restaurant_018",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: I'm looking for an Italian restaurant in the centre.\nSystem: La Margherita is an Italian restaurant in the centre. Would you like me to book a table?\nUser: Yes please, book a table for four at 7 pm.",
+        "expected_actions": [],
+        "expected_finish": "Your table for four at La Margherita at 7 pm has been successfully booked.",
+        "gold_entities": {
+            "name": "la margherita"
+        }
+    },
+    {
+        "id": "restaurant_019",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: I want to dine at Golden Wok tonight.\nSystem: Golden Wok is available. Would you like me to reserve a table?\nUser: Yes, please reserve a table for two at 6 pm.",
+        "expected_actions": [],
+        "expected_finish": "Your reservation for two at Golden Wok at 6 pm is confirmed.",
+        "gold_entities": {}
+    },
+    {
+        "id": "restaurant_020",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: I'm looking for a Chinese restaurant in the north.\nSystem: I found Golden Wok and Hakka.\nUser: Which one is cheaper?",
+        "expected_actions": ["Search[name=='golden wok']", "Search[name=='hakka']"],
+        "expected_finish": "Hakka is in the expensive price range, while Golden Wok is in the cheap price range. Therefore, Golden Wok is cheaper.",
+        "gold_entities": {
+            "name_1": "golden wok",
+            "name_2": "the lucky star"
+        }
+    }]

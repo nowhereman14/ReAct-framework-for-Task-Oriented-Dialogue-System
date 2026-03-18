@@ -1,0 +1,249 @@
+[
+    {
+        "id": "hotel_001",
+        "domain": "hotel",
+        "intent": "REQUEST:GET",
+        "history": "User: I need a cheap hotel in the north of the city.",
+        "expected_actions": ["Search[area=='north' and pricerange=='cheap']"],
+        "expected_finish": "Worth House is a cheap guesthouse in the north. Would you like more information or shall I make a reservation?",
+        "gold_entities": {
+            "area": "north",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "hotel_002",
+        "domain": "hotel",
+        "intent": "INFORM:REFINE",
+        "history": "User: I need a hotel in the north.\nSystem: I found several options in the north. Do you have any preferences?\nUser: I'd like one with parking and internet.",
+        "expected_actions": ["Search[area=='north' and parking=='yes' and internet=='yes']"],
+        "expected_finish": "Acorn Guest House is a moderate guesthouse in the north with parking and internet. Would you like to book it?",
+        "gold_entities": {
+            "area": "north",
+            "parking": "yes",
+            "internet": "yes"
+        }
+    },
+    {
+        "id": "hotel_003",
+        "domain": "hotel",
+        "intent": "INFORM:FALLBACK",
+        "history": "User: I'm looking for a cheap hotel in the centre.\nSystem: Unfortunately I couldn't find any cheap hotels in the centre. Would you like to try a different area or price range?\nUser: What about cheap hotels in the east?",
+        "expected_actions": ["Search[area=='east' and pricerange=='cheap']"],
+        "expected_finish": "Allenbell is a cheap guesthouse in the east with parking and internet. Would you like more information?",
+        "gold_entities": {
+            "area": "east",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "hotel_004",
+        "domain": "hotel",
+        "intent": "ASK:GET",
+        "history": "User: I'm looking for a hotel in the south.\nSystem: The Lensfield Hotel is an expensive hotel in the south with parking and internet. Would you like more information?\nUser: What is their phone number?",
+        "expected_actions": ["Search[name=='the lensfield hotel']"],
+        "expected_finish": "The Lensfield Hotel's phone number is 01223355017.",
+        "gold_entities": {
+            "name": "the lensfield hotel",
+            "phone": "01223355017"
+        }
+    },
+    {
+        "id": "hotel_005",
+        "domain": "hotel",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Which has more stars, Gonville Hotel or University Arms Hotel?",
+        "expected_actions": ["Search[name=='gonville hotel']", "Search[name=='university arms hotel']"],
+        "expected_finish": "University Arms Hotel has more stars — it has 4 stars, while Gonville Hotel has 3 stars.",
+        "gold_entities": {
+            "name_1": "gonville hotel",
+            "stars_1": "3",
+            "name_2": "university arms hotel",
+            "stars_2": "4"
+        }
+    },
+    {
+        "id": "hotel_006",
+        "domain": "hotel",
+        "intent": "REQUEST:BOOK",
+        "history": "User: I need a moderate guesthouse in the east.\nSystem: Warkworth House is a moderate guesthouse in the east with parking and internet. Would you like to book it?\nUser: Yes please, for 2 people for 3 nights starting Monday.",
+        "expected_actions": [],
+        "expected_finish": "I have booked Warkworth House for 2 people for 3 nights starting Monday. Is there anything else I can help you with?",
+        "gold_entities": {
+            "name": "warkworth house"
+        }
+    },
+    {
+        "id": "hotel_007",
+        "domain": "hotel",
+        "intent": "REQUEST:GET",
+        "history": "User: I'm looking for an expensive hotel in the centre with parking.",
+        "expected_actions": ["Search[area=='centre' and pricerange=='expensive' and parking=='yes']"],
+        "expected_finish": "Gonville Hotel is an expensive 3-star hotel in the centre with parking and internet. Would you like to book it?",
+        "gold_entities": {
+            "area": "centre",
+            "pricerange": "expensive",
+            "parking": "yes"
+        }
+    },
+    {
+        "id": "hotel_008",
+        "domain": "hotel",
+        "intent": "INFORM:REFINE",
+        "history": "User: I need a hotel in the west.\nSystem: I found several options in the west. Any preferences?\nUser: It needs to have at least 4 stars.",
+        "expected_actions": ["Search[area=='west' and stars=='4']"],
+        "expected_finish": "Huntingdon Marriott Hotel is a 4-star hotel in the west with parking and internet. Would you like more information?",
+        "gold_entities": {
+            "area": "west",
+            "stars": "4"
+        }
+    },
+    {
+        "id": "hotel_009",
+        "domain": "hotel",
+        "intent": "ASK:GET",
+        "history": "User: I need a cheap guesthouse in the south.\nSystem: Rosa's Bed and Breakfast is a cheap guesthouse in the south. Would you like more information?\nUser: What is their address?",
+        "expected_actions": ["Search[name==\"rosa's bed and breakfast\"]"],
+        "expected_finish": "Rosa's Bed and Breakfast is located at 53 Roseford Road.",
+        "gold_entities": {
+            "name": "rosa's bed and breakfast",
+            "address": "53 roseford road"
+        }
+    },
+    {
+        "id": "hotel_010",
+        "domain": "hotel",
+        "intent": "INFORM:GET",
+        "history": "User: I stayed at Hamilton Lodge last time and liked it. Do you have anything similar but in the south?",
+        "expected_actions": ["Search[area=='south' and pricerange=='moderate']"],
+        "expected_finish": "Bridge Guest House is a moderate guesthouse in the south with parking and internet. Would you like to book it?",
+        "gold_entities": {
+            "area": "south",
+            "pricerange": "moderate"
+        }
+    },
+    {
+        "id": "hotel_011",
+        "domain": "hotel",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Which is cheaper, Alexander Bed and Breakfast or Gonville Hotel?",
+        "expected_actions": ["Search[name=='alexander bed and breakfast']", "Search[name=='gonville hotel']"],
+        "expected_finish": "Alexander Bed and Breakfast is cheaper — it is in the cheap price range, while Gonville Hotel is in the expensive price range.",
+        "gold_entities": {
+            "name_1": "alexander bed and breakfast",
+            "pricerange_1": "cheap",
+            "name_2": "gonville hotel",
+            "pricerange_2": "expensive"
+        }
+    },
+    {
+        "id": "hotel_012",
+        "domain": "hotel",
+        "intent": "INFORM:FALLBACK",
+        "history": "User: I need a 5-star hotel in the north.\nSystem: Unfortunately there are no 5-star hotels in the north. Would you like to try a different area or star rating?\nUser: What about 4-star hotels in the north?",
+        "expected_actions": ["Search[area=='north' and stars=='4']"],
+        "expected_finish": "I found several 4-star guesthouses in the north, such as Acorn Guest House and Kirkwood House. Would you like more information about any of them?",
+        "gold_entities": {
+            "area": "north",
+            "stars": "4"
+        }
+    },
+    {
+        "id": "hotel_013",
+        "domain": "hotel",
+        "intent": "ASK:GET",
+        "history": "User: I need a cheap guesthouse in the east.\nSystem: Leverton House is a cheap guesthouse in the east with parking and internet. Would you like more information?\nUser: Does it have parking?",
+        "expected_actions": [],
+        "acceptable_actions": ["Search[name=='leverton house']"],
+        "expected_finish": "Yes, Leverton House has parking available.",
+        "gold_entities": {
+            "parking": "yes"
+        }
+    },
+    {
+        "id": "hotel_014",
+        "domain": "hotel",
+        "intent": "INFORM:REFINE",
+        "history": "User: I need a moderate guesthouse in the north.\nSystem: I found several moderate guesthouses in the north. Any other preferences?\nUser: I need one without internet, I want to disconnect.",
+        "expected_actions": ["Search[area=='north' and pricerange=='moderate' and internet=='no']"],
+        "expected_finish": "Alpha-Milton Guest House is a moderate guesthouse in the north without internet. Would you like to book it?",
+        "gold_entities": {
+            "area": "north",
+            "pricerange": "moderate",
+            "internet": "no"
+        }
+    },
+    {
+        "id": "hotel_015",
+        "domain": "hotel",
+        "intent": "REQUEST:GET",
+        "history": "User: I need a 4-star hotel in the west with parking.",
+        "expected_actions": ["Search[area=='west' and stars=='4' and parking=='yes']"],
+        "expected_finish": "Huntingdon Marriott Hotel is a 4-star hotel in the west with parking. Would you like more information?",
+        "gold_entities": {
+            "area": "west",
+            "stars": "4",
+            "parking": "yes"
+        }
+    },
+    {
+        "id": "hotel_016",
+        "domain": "hotel",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Can you book Cityroomz for me?\nSystem: Of course! How many people and for how many nights?\nUser: 2 people for 1 night starting Friday.",
+        "expected_actions": [],
+        "expected_finish": "I have booked Cityroomz for 2 people for 1 night starting Friday. s there anything else I can help you with?",
+        "gold_entities": {
+            "name": "cityroomz"
+        }
+    },
+    {
+        "id": "hotel_017",
+        "domain": "hotel",
+        "intent": "INFORM:GET",
+        "history": "User: I liked Express by Holiday Inn, do you have anything similar but cheaper?",
+        "expected_actions": ["Search[area=='east' and pricerange=='cheap']"],
+        "expected_finish": "Leverton House is a cheap guesthouse in the east with parking and internet. Would you like to book it?",
+        "gold_entities": {
+            "area": "east",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "hotel_018",
+        "domain": "hotel",
+        "intent": "ASK:GET",
+        "history": "User: I need an expensive hotel in the centre.\nSystem: University Arms Hotel is an expensive 4-star hotel in the centre with parking and internet. Would you like to book it?\nUser: What are the prices?",
+        "expected_actions": ["Search[name=='university arms hotel']"],
+        "expected_finish": "University Arms Hotel charges 104 for a single room, 124 for a double room, and 144 for a family room.",
+        "gold_entities": {
+            "name": "university arms hotel"
+        }
+    },
+    {
+        "id": "hotel_019",
+        "domain": "hotel",
+        "intent": "INFORM:FALLBACK",
+        "history": "User: I need a cheap hotel in the south with no parking.\nSystem: Unfortunately I couldn't find any cheap hotels in the south without parking. Would you like to relax one of the filters?\nUser: Okay, parking is fine.",
+        "expected_actions": ["Search[area=='south' and pricerange=='cheap']"],
+        "expected_finish": "Rosa's Bed and Breakfast is a cheap guesthouse in the south with parking. Would you like more information?",
+        "gold_entities": {
+            "area": "south",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "hotel_020",
+        "domain": "hotel",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Is Hamilton Lodge or Bridge Guest House more expensive?",
+        "expected_actions": ["Search[name=='hamilton lodge']", "Search[name=='bridge guest house']"],
+        "expected_finish": "Both Hamilton Lodge and Bridge Guest House are in the moderate price range, so they are equal in that regard.",
+        "gold_entities": {
+            "name_1": "hamilton lodge",
+            "pricerange_1": "moderate",
+            "name_2": "bridge guest house",
+            "pricerange_2": "moderate"
+        }
+    }
+]
