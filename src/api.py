@@ -38,11 +38,12 @@ async def look(domain: str, area: str = None):
 @app.get("/search/{domain}")
 async def search(domain: str, area: str = None, pricerange: str = None,
                  stars: str = None, internet: str = None, parking: str = None,
-                 food: str = None):
+                 food: str = None, name: str = None):
    
     if domain == "hotel":
         results = hotel_db
         if area:       results = [h for h in results if h.get("area") == area]
+        if name:       results = [h for h in results if h.get("name") == name]
         if pricerange: results = [h for h in results if h.get("pricerange") == pricerange]
         if stars:      results = [h for h in results if h.get("stars") == stars]
         if internet:   results = [h for h in results if h.get("internet") == internet]
@@ -52,6 +53,7 @@ async def search(domain: str, area: str = None, pricerange: str = None,
         results = restaurant_db
         if area:       results = [r for r in results if r.get("area") == area]
         if pricerange: results = [r for r in results if r.get("pricerange") == pricerange]
+        if name:       results = [r for r in results if r.get("name", "").lower() == name.lower()]
         if food:
             if isinstance(food, list):
                 results = [r for r in results if r.get('food') in food]
