@@ -1,1 +1,0 @@
-User: Hello, I'm looking for an expensive restaurant located in the south part of town.\nSystem: Do you want particular food type?\nUser: I don't care\nSystem: Chiquito restaurant bar serves mexican food, in the expensive price range and in the south part of town\nUser: Are there any other options?",

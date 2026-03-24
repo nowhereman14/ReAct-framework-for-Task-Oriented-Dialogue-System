@@ -6,6 +6,6 @@ Observation 1: No items matching the query have been found.
 Thought 2: No results found. I should relax the filters and try without the pricerange.
 Action 2: Search[food=='european' and area=='north']
 Observation 2: Here are 1 result: [{'name': 'city stop restaurant', 'food': 'european', 'area': 'north'}]
-Thought 3: I found a European restaurant in the north but they may not be cheap. I should inform the user.
-Action 3: Finish[I couldn't find a cheap European restaurant in the north, but there is a European option available: City Stop estaurant. Would this restaurant work?]
+Thought 3: I found a European restaurant in the north but they may not be cheap. I should inform the user. The introduction says that they serve a variety of english and italian dishes, I should include this in the response.
+Action 3: Finish[I couldn't find a cheap European restaurant in the north, but there is a European option available: City Stop restaurant. It serves a variety of english and italian dishes. Would this restaurant work?]
 </example_4>

@@ -9,6 +9,6 @@ User: I just want to try something different
 Thought 3: The user wants something different but has no specific preference. I should search for more unusual cuisines that follow the conditions previously specified by the user.
 Action 3: Search[area=='centre' and pricerange=='expensive' and food=='korean,japanese,thai']
 Observation 3: I have 3 options: [{'name': 'little seoul', 'food': 'korean', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223308681'}, {'name': 'wagamama', 'food': 'japanese', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223462354'}, {'name': 'bangkok city', 'food': 'thai', 'area': 'centre', 'pricerange': 'expensive', 'phone': '01223354382'}]
-Thought 4: I found a Korean restaurant which is quite unique. I should recommend it to the user.
-Action 4: Finish[There is a Korean restaurant called Little Seoul located at 108 Regent Street City Centre. Would you like their phone number?]
+Thought 4: I found a Korean restaurant which is quite unique. I should recommend it to the user. The introduction says that they offer  a variety of korean cuisine for lunch and dinner, I should include this in the response.
+Action 4: Finish[There is a Korean restaurant called Little Seoul which offer a variety of korean cuisine for lunch and dinner. It is located at 108 Regent Street City Centre. Would you like their phone number?]
 </example_5>
