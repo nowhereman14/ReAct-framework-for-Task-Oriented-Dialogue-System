@@ -6,7 +6,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import argparse
 from react import react_process, TravelScene
 from dotenv import load_dotenv
-from groq import Groq
 
 parser = argparse.ArgumentParser()
 parser.add_argument('domain', type=str, choices=['hotel', 'restaurant'], help='Domain to use')
@@ -18,7 +17,6 @@ else:
     from restaurant_scene.prompt_restaurant import load_prompt
 
 from openai import OpenAI
-from groq import Groq
 
 load_dotenv()
 
@@ -70,5 +68,5 @@ if __name__ == "__main__":
         )
 
         answer = result['final_answer']
-        history += f"User: {user_input}\nSystem: {answer}\n"
+        history = result['all_conversation'].replace(SYSTEM_PROMPT + "\n", "")
         print(f"\nSystem: {answer}\n")
