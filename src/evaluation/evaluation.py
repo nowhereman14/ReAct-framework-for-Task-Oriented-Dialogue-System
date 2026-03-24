@@ -4,6 +4,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import argparse
+import requests as rq
 import json
 import nltk
 from rouge_score import rouge_scorer
@@ -14,9 +15,10 @@ from groq import Groq
 from openai import OpenAI
 import time
 
-from src.react import react_process, TravelScene
+from react import react_process, TravelScene
 from hotel_scene.prompt_hotel import load_prompt as load_hotel_prompt
 from restaurant_scene.prompt_restaurant import load_prompt as load_restaurant_prompt
+from all_in_context_main import clean_hotels, clean_restaurants
 
 load_dotenv()
 client = OpenAI(
@@ -25,6 +27,31 @@ client = OpenAI(
 )
 MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct"
 API_URL = os.getenv("API_URL")
+
+def run_blind(history, domain):
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": f"You are a travel assistant helping users find {domain}s in Cambridge. Answer helpfully and naturally."},
+            {"role": "user", "content": history}
+        ],
+        max_tokens=200,
+        temperature=0
+    )
+    return response.choices[0].message.content
+
+def run_all_in_context(history, domain):
+    db = clean_hotels if domain == "hotel" else clean_restaurants
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": f"You are a travel assistant. Answer based strictly on this data:\n{db}"},
+            {"role": "user", "content": history}
+        ],
+        max_tokens=200,
+        temperature=0
+    )
+    return response.choices[0].message.content
 
 def calculate_bleu_score(response:str, gold:str) -> float:
     chencherry = nltk.translate.bleu_score.SmoothingFunction()
@@ -89,6 +116,7 @@ if __name__ == "__main__":
     parser.add_argument("gold_standard", type=str, help="Path to gold standard JSON")
     parser.add_argument("--output", type=str, default="evaluation/results.json")
     parser.add_argument("--domain", type=str, choices=["hotel", "restaurant"], default="restaurant")
+    parser.add_argument("--system", type=str, choices=["react", "blind", "all_in_context"], default="react")
     args = parser.parse_args()
 
     with open(args.gold_standard, "r") as f:
@@ -104,18 +132,23 @@ if __name__ == "__main__":
         print(f"Evaluating {example['id']}...")
         for attempt in range(3):
             try:
-                scene = TravelScene(domain=args.domain, api_url=API_URL)
-                result = react_process(prompt, example["history"], scene, client=client, model=MODEL, verbose=False)
-                time.sleep(5)
+                if args.system == "react":
+                    scene = TravelScene(domain=args.domain, api_url=API_URL)
+                    result = react_process(prompt, example["history"], scene, client=client, model=MODEL, verbose=False)
+                    predicted_finish = result["final_answer"]
+                elif args.system == "blind":
+                    predicted_finish = run_blind(example["history"], args.domain)
+                else:
+                    predicted_finish = run_all_in_context(example["history"], args.domain)
+                time.sleep(15)
                 break 
             except Exception as e:
                 print(f"  Attempt {attempt+1} failed: {e}")
-                time.sleep(10)  
+                time.sleep(20)  
         else:
             print(f"  Skipping {example['id']} after 3 attempts")
             continue
 
-        predicted_finish = result["final_answer"]
         metrics = evaluate_response(predicted_finish, example["expected_finish"], example.get("gold_entities", {}))
         
         instance = {
