@@ -1,15 +1,19 @@
 import sys
 import os
 import requests
+import argparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from dotenv import load_dotenv
-from groq import Groq
+from openai import OpenAI
 
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL = "llama-3.3-70b-versatile"
+client = OpenAI(
+    api_key=os.getenv("FIREWORKS_API_KEY"),
+    base_url="https://api.fireworks.ai/inference/v1"
+)
+MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct"
 
 hotel_db = requests.get(
     "https://raw.githubusercontent.com/budzianowski/multiwoz/master/db/hotel_db.json"
@@ -29,19 +33,21 @@ clean_restaurants = [
     for r in restaurant_db
 ]
 
-SYSTEM_PROMPT = f"""You are a travel assistant helping users find hotels in Cambridge. 
-Answer user questions helpfully and naturally.
-
-Available hotels:
-{clean_hotels}
-
-Available restaurants:
-{clean_restaurants}
-
-Answer user questions based strictly on this information.
-"""
-
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('domain', type=str, choices=['hotel', 'restaurant'])
+    args = parser.parse_args()
+
+    db = clean_hotels if args.domain == "hotel" else clean_restaurants
+
+    SYSTEM_PROMPT = f"""You are a travel assistant helping users find {args.domain}s in Cambridge. 
+    Answer user questions helpfully and naturally.
+
+    Available {args.domain}s:
+    {db}
+
+    Answer user questions based strictly on this information.
+    """
     history = ""
 
     print("All-in-context Travel Assistant ready. Type 'exit' to quit.\n")
