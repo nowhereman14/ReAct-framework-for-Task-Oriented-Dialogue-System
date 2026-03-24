@@ -30,7 +30,7 @@ class TravelScene:
             if self.domain == 'hotel':
                 fields = ['name', 'type', 'area', 'pricerange', 'stars', 'parking', 'internet', 'phone']
             else:
-                fields = ['name', 'food', 'area', 'pricerange', 'phone']
+                fields = ['name', 'food', 'area', 'pricerange', 'phone', 'introduction']
             clean = [
                 {k: r[k] for k in fields if k in r}
                 for r in results[:5]
