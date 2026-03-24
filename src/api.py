@@ -66,5 +66,12 @@ async def search(domain: str, area: str = None, pricerange: str = None,
     if not results:
         raise HTTPException(status_code=404, detail="No results found matching the criteria")
 
-    return results
+    if domain == "hotel":
+        return results[:5]
+    
+    elif domain == "restaurant":
+        return [{"name": r["name"], "food": r.get("food"), "area": r["area"],
+                 "pricerange": r.get("pricerange"), "phone": r.get("phone"),
+                 "introduction": r.get("introduction", "")} 
+                for r in results[:5]]
 
