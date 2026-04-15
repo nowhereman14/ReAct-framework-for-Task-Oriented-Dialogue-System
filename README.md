@@ -32,21 +32,6 @@ For the evaluation we used some of the automatic metrics designed for machine tr
 
 To evaluate the performance of our system we defined two baselines: the blind baseline, in which we exclude all instance-related information, and the all-in-context baseline, which is provided by the complete set of instance metadata in the input. Both baselines uses the llama-v3p3-70b-instruct model.
 
-# Results
-
-Our experiments in the MultiWOZ dataset exhibit that in simpler scenarios with low instance density the proposed approach outperforms the blind baseline while performing similarly to LLMs that rely solely on in-context-information, consistent with findings by Markel et al. (2026).
-
-<img width="600" height="400" alt="Figure_metrics" src="https://github.com/user-attachments/assets/5a319f01-996e-4728-bec1-b79eacd8ec0a" /><img width="426" height="400" alt="Figure_prometheus" src="https://github.com/user-attachments/assets/c2fd298e-cf91-408f-b2d5-1dba3caae946" />
-
-However it has to be noted that LLM judges tend to overestimate the performance of the baselines, leading to a higher rate of false positives. Due to this limitation, we suggest to perform manual evaluation in future works.
-
-We can also see that ReAct achieves higher ROUSE cores that both baselines, suggesting more natural and cotextually appropiate responses.
-
-In an intent level, ReAct excels at multi-object reasoning tasks involving comparison, refinement, and similarity search.
-
-<img width="1487" height="501" alt="image" src="https://github.com/user-attachments/assets/a9e343de-da62-4bda-b860-aea125b1b592" />
-
-
 
 
 
