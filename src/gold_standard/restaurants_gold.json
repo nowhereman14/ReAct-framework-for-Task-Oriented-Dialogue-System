@@ -281,4 +281,557 @@
             "pricerange":"cheap",
             "food": "spanish"
         }
-    }]
+    },
+    {
+        "id": "restaurant_025",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Hello, I would like to know if there is some Mexican restaurant around the city centre, thanks!",
+        "expected_actions": ["Search[food=='mexican' and area=='centre']"],
+        "expected_finish": "Unluckly, there is no Mexican food restaurant in the city centre. Would you like me to look in other areas?",
+        "gold_entities": {
+            "area":"centre",
+            "food": "mexican"
+        }
+    },
+    {
+        "id": "restaurant_026",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Good evening, it would be nice to have some recommendation about an expensive French restaurant in the south, thank you.",
+        "expected_actions": ["Search[food=='french' and area=='south' and pricerange=='expensive']"],
+        "expected_finish": "Even if there is no French cuisine restaurant in the south part of the city, I could show you French restaurants in other areas.",
+        "gold_entities": {
+            "area":"south",
+            "pricerange":"expensive",
+            "food": "french"
+        }
+    },
+    {
+        "id": "restaurant_027",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Good morning, do you know a nice place for brunch? Thanks a lot.",
+        "expected_actions": ["Search[food=='brunch']"],
+        "expected_finish": "Unfortunately, I'm not finding any brunch establishment in the city.",
+        "gold_entities": {
+            "food": "brunch"
+        }
+    },
+    {
+        "id": "restaurant_028",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Good afternoon, could you recommend some nice and affordable Vietnamese cuisine around the north part of the city, please?",
+        "expected_actions": ["Search[food=='vietnamese' and area=='north' and pricerange=='cheap']"],
+        "expected_finish": "I couldn't match your request. If you like, I can search it in other areas.",
+        "gold_entities": {
+            "area":"north",
+            "pricerange":"cheap",
+            "food": "vietnamese"
+        }
+    },
+    {
+        "id": "restaurant_029",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Hi, we'd like some advice for a nice cheap North American restaurant in the west part of the town, thanks!",
+        "expected_actions": ["Search[food=='north american' and area=='west' and pricerange=='cheap']"],
+        "expected_finish": "I couldn't find your research. If you like, I could explore it in other areas.",
+        "gold_entities": {
+            "area":"west",
+            "pricerange":"cheap",
+            "food": "north american"
+        }
+    },
+    {
+        "id": "restaurant_030",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Hello, I would like to know if there is some expensive Korean establishment in the north, thanks.",
+        "expected_actions": ["Search[food=='korean' and area=='north' and pricerange=='expensive']"],
+        "expected_finish": "Lamentably, I couldn't match your request, but if you like, I can check it on in other areas.",
+        "gold_entities": {
+            "area":"north",
+            "pricerange":"expensive",
+            "food": "korean"
+        }
+    },
+    {
+        "id": "restaurant_031",
+        "domain": "restaurant",
+        "intent": "INFORM:FALLBACK",
+        "history": "Hello, we would like to eat in a Mediterranean food restaurant around the east part of the city next to the river. Could you recommend some nice place, thanks?",
+        "expected_actions": ["Search[food=='mediterranean' and area=='east']"],
+        "expected_finish": "Unfortunately, I couldn't find your search, if you prefer I can show you some in different areas.",
+        "gold_entities": {
+            "area":"east",
+            "food": "mediterranean"
+        }
+    },
+    {
+        "id": "restaurant_032",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Hello, I'm looking for a Mediterranean restaurant in the city centre.\nSystem: There are three different options:La Mimosa, The Gardenia, and Shiraz restaurant.\nUser: Which one is the most expensive?",
+        "expected_actions": ["Search[name=='la mimosa']", "Search[name=='the gardenia']", "Search[name == 'shiraz restaurant']"],
+        "expected_finish": "There are two restaurants that match your request: La mimosa and The Gardenia.",
+        "gold_entities": {
+            "name_1": "la mimosa",
+            "name_2": "the gardenia",
+            "name_3": "shiraz restaurant"
+        }
+    },
+    {
+        "id": "restaurant_033",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Hi, I would like some recommendations about cheap Chinese restaurants in the city centre. \nSystem: I found Charlie Chan, Rice house and Golden house.\nUser: Where can I eat popular Chinese dishes?",
+        "expected_actions": ["Search[name=='charlie chan']", "Search[name=='rice house']", "Search[name == 'golden house']"],
+        "expected_finish": "There are two different restaurants with your desires: Charlie Chan and Rice house.",
+        "gold_entities": {
+            "name_1": "charlie chan",
+            "name_2": "rice house",
+            "name_3": "golden house"
+        }
+    },
+    {
+        "id": "restaurant_034",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Good afternoon, I've seen plenty of good reviews about two Chinese establishments: Jinling noodle bar and Rice house. Which one is the most expensive?",
+        "expected_actions": ["Search[name=='jinling noodle bar']", "Search[name=='rice house']"],
+        "expected_finish": "Lovely, Jinling noodle bar is the one that fits you best.",
+        "gold_entities": {
+            "name_1": "jinling noodle bar",
+            "name_2": "rice house"
+        }
+    },
+    {
+        "id": "restaurant_035",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Good afternoon, we're in the mood of having some pizzas for dinner. We know there is: Pizza Hut city centre, Pizza Hut Cherry Hinton and Pizza express. Which one is the cheapest option?",
+        "expected_actions": ["Search[name=='pizza hut city centre']", "Search[name=='pizza hut cherry hinton']", "Search[name=='pizza express']"],
+        "expected_finish": "Good findings! Within those options, the one that fits your budget is Pizza Hut city centre.",
+        "gold_entities": {
+            "name_1": "pizza hut city centre",
+            "name_2": "pizza hut cherry hinton",
+            "name_3": "pizza express"
+        }
+    },
+    {
+        "id": "restaurant_036",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Hello, today I want to try some Thai cuisine, is there any option? \nSystem: Sure, there are two options: Sala Thong and Bangkok city. \nUser: Is some establishment around the west part of the city?",
+        "expected_actions": ["Search[name=='sala thong']", "Search[name=='bangkok city']"],
+        "expected_finish": "Sure, Sala Thong is on the west part.",
+        "gold_entities": {
+            "name_1": "sala thong",
+            "name_2": "bangkok city"
+        }
+    }, 
+    {
+        "id": "restaurant_037",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Good morning, we want to taste some nice French cuisine. \nSystem: Sure, there are two options: restaurant Two Two and Cote. \nUser: I also want to avoid the crowded city centre.",
+        "expected_actions": ["Search[name=='restaurant two two']", "Search[name=='cote']"],
+        "expected_finish": "Good observation, then the best option would be the restaurant Two Two.",
+        "gold_entities": {
+            "name_1": "restaurant two two",
+            "name_2": "cote"
+        }
+    },
+    {
+        "id": "restaurant_038",
+        "domain": "restaurant",
+        "intent": "REQUEST:COMPARE",
+        "history": "User: Hi, today we're in the mood of some fast food for dinner. We would like to know between Gourmet Burger kitchen and Pizza Hut city centre the most affordable option. Thanks!",
+        "expected_actions": ["Search[name=='gourmet burger kitchen']", "Search[name=='pizza hut city centre']"],
+        "expected_finish": "Nice, the option that best fits to you for its prices is Pizza Hut city centre.",
+        "gold_entities": {
+            "name_1": "gourmet burger kitchen",
+            "name_2": "pizza hut city centre"
+        }
+    },
+    {
+        "id": "restaurant_039",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: As we just got into the city, we would like to eat in the north part next to our accommodation.\nSystem: We have several establishments placed in the north. Is there any preference regarding the cuisine?\nUser: Not regarding the cuisine, but the price. Is there any affordable price place?",
+        "expected_actions": ["Search[area=='north' and pricerange=='cheap']"],
+        "expected_finish": "Good, there are two options that match your budget, an Italian and an Indian restaurant. Would you like more information about those places?",
+        "gold_entities": {
+            "area": "north",
+            "pricerange":"cheap"
+        }
+    },
+    {
+        "id": "restaurant_040",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Hello, we'd like to try some Indian food.\nSystem: I could find several Indian restaurants.\nUser: We'd like some recommendation in an expensive establishment?",
+        "expected_actions": ["Search[pricerange=='expensive' and food=='indian']"],
+        "expected_finish": "Fantastic, there are three Indian restaurants with a high cost. Do you have any preference regarding the area?",
+        "gold_entities": {
+            "pricerange":"expensive",
+            "food" : "indian"
+        }
+    },
+    {
+        "id": "restaurant_041",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Hi, as we're having a walk through the east part of the city, we'd like some restaurant recommendations.\nSystem: Sure, there is variety regarding the cuisine. Did you have something in mind?\nUser: Not really, it was just to grab some ideas.",
+        "expected_actions": ["Search[area=='east']"],
+        "expected_finish": "Nice, those are the varieties of food: International, Chinese, Indian, and Italian. Is there anything else?",
+        "gold_entities": {
+            "area" : "east",
+            "food" : "international, chinese, indian, italian"
+        }
+    },
+    {
+        "id": "restaurant_042",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Good morning, is there any Italian restaurant in the town?",
+        "expected_actions": ["Search[food=='italian']"],
+        "expected_finish": "Sure, there are plenty of places in each area and suit every pocket. Would you like more information?",
+        "gold_entities": {
+            "food" : "italian"
+        }
+    },
+    {
+        "id": "restaurant_043",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Good afternoon, we'd like to grab some ideas for dinner. Could you give some restaurant advice in a moderate price range? \nSystem: Of course, there are plenty of different places to give it a try. Did you have some cuisine in mind? \nUser: Not really, everything fits us. It's just to know which types of food there are.",
+        "expected_actions": ["Search[pricerange=='moderate']"],
+        "expected_finish": "Lovely, there's a wide variety of food, including Italian, modern European, British, or Indian. Would you like more information for a specific type of food?",
+        "gold_entities": {
+            "pricerange" : "moderate"
+        }
+    },
+    {
+        "id": "restaurant_044",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Good evening, we'd like to eat modern European food. \nSystem: Nice choice. Do you have any preference area? \nUser: Yes, is there any place near the city centre?",
+        "expected_actions": ["Search[food=='modern european' and area=='centre']"],
+        "expected_finish": "Good, there are several options in the city centre. How about your budget?",
+        "gold_entities": {
+            "food" : "modern european",
+            "area" : "centre"
+        }
+    },
+    {
+        "id": "restaurant_045",
+        "domain": "restaurant",
+        "intent": "REQUEST:GET",
+        "history": "User: Hello, I'd like to know if there is a Thai restaurant in the town?",
+        "expected_actions": ["Search[food=='thai']"],
+        "expected_finish": "Sure, there are two different Thai restaurants. Would you like to know more information about the location or the price range?",
+        "gold_entities": {
+            "food" : "thai"
+        }
+    },
+    {
+        "id": "restaurant_046",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: Hi, we are looking for a brunch in this town.\nSystem: I couldn't find any brunch, maybe you could try another type of food.\nUser: How about British food?",
+        "expected_actions": ["Search[food=='british']"],
+        "expected_finish": "Good choice, there is the Copper Kettle, which serves full English breakfasts lunches.",
+        "gold_entities": {
+            "food": "british"
+        }
+    },
+    {
+        "id": "restaurant_047",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: Hello, I'm looking for a nice French restaurant.\nSystem: Sure, any area preferences? \nUser: How about on the city centre?",
+        "expected_actions": ["Search[food=='french' and area=='centre']"],
+        "expected_finish": "Nice, there is Cote a modern French bistro offering some classical and simple favourites of French cuisine.",
+        "gold_entities": {
+            "food": "french",
+            "area" : "centre"
+        }
+    },
+    {
+        "id": "restaurant_048",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: Hello, I'm looking for an expensive Chinese restaurant.\nSystem: Nice, there are several options regarding the area. Any preferences? \nUser: Sure, I'd like around the north part of the city.",
+        "expected_actions": ["Search[food=='chinese' and area=='north' and pricerange=='expensive']"],
+        "expected_finish": "Good, I have found two options. Would you like more information?",
+        "gold_entities": {
+            "food": "chinese",
+            "area" : "north",
+            "pricerange": "expensive"
+        }
+    },
+    {
+        "id": "restaurant_049",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: Hi, I'm looking for an international restaurant.\nSystem: Nice, you could have several options regarding the area. \nUser: I'd prefer if there is some cheap option in the east part of the city.",
+        "expected_actions": ["Search[food=='international' and area=='east' and pricerange=='cheap']"],
+        "expected_finish": "Good shoot, I found the Missing Sock, that matches all your preferences.",
+        "gold_entities": {
+            "food": "international",
+            "area" : "east",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "restaurant_050",
+        "domain": "restaurant",
+        "intent": "INFORM:REFINE",
+        "history": "User: Good evening, we would like to have some advice for expensive restaurants in the city centre.\nSystem: Good, is there any food type preference? \nUser: Sure, we'd prefer some North American establishment, if possible. Thanks.",
+        "expected_actions": ["Search[food=='north american' and area=='centre' and pricerange=='expensive']"],
+        "expected_finish": "Lovely, the Gourmet burger kitchen matches all your requests.",
+        "gold_entities": {
+            "food": "north american",
+            "area" : "centre",
+            "pricerange": "expensive"
+        }
+    },
+    {
+        "id": "restaurant_051",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hello, we'd like to try some Portuguese restaurant in the south area of the city.\nSystem: Nandos restaurant is a Portuguese establishment in the south. Would you like more information?\nUser: Can I get their phone number?",
+        "expected_actions": ["Search[name=='nandos']"],
+        "expected_finish": "Sure, their phone number is 01223327908",
+        "gold_entities": {
+            "name": "nandos",
+            "phone": "01223327908"
+        }
+    },
+    {
+        "id": "restaurant_052",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hi, we'd like some recommendation on a Mediterranean restaurant on the south.\nSystem: The establishment that matches all your requests is called restaurant Alimentum. Would you like more information?\nUser: What is the address?",
+        "expected_actions": ["Search[name=='restaurant alimentum']"],
+        "expected_finish": "Although I can't provide you the exact address, the restaurant is located in the south part of the city. Would you like another kind of information such as the phone number?",
+        "gold_entities": {
+            "name": "restaurant alimentum"
+        }
+    },
+    {
+        "id": "restaurant_053",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hello, I've found excellent reviews from Gourmet Burger Kitchen, an expensive North American restaurant. Could you give me more information about it? Thanks.",
+        "expected_actions": ["Search[name=='gourmet burger kitchen']"],
+        "expected_finish": "Sure, even if the establishment is a bit more expensive than the average burger restaurants, they provide a high quality food and large side orders. Moreover, options for vegetarians are also included on the menu.",
+        "gold_entities": {
+            "name": "gourmet burger kitchen"
+        }
+    },
+    {
+        "id": "restaurant_054",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hi, we're in the mood of finding a nice Italian establishment in the city centre. What options do we have? \nSystem: Sure, how about your budget? \nUser: As we want to rest a bit, we don't mind if it's a bit expensive.",
+        "expected_actions": ["Search[food=='italian' and area=='centre' and pricerange=='expensive']"],
+        "expected_finish": "Good, there is Stazione restaurant and coffee bar that could match your expectations. Would you like me to provide more information?",
+        "gold_entities": {
+            "food": "italian",
+            "area": "centre",
+            "pricerange": "expensive"
+        }
+    },
+    {
+        "id": "restaurant_055",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hello, I'm looking for a moderate restaurant in the west. Provide me with a recommendation, please.\nSystem: Good, Saint Johns Chop house would be a good option. Would you like more information?\nUser: Can I get their phone number, please?",
+        "expected_actions": ["Search[name=='saint johns chop house']"],
+        "expected_finish": "Sure, their phone number is 01223353110",
+        "gold_entities": {
+            "name": "saint johns chop house",
+            "phone": "01223353110"
+        }
+    },
+    {
+        "id": "restaurant_056",
+        "domain": "restaurant",
+        "intent": "ASK:GET",
+        "history": "User: Hi, can I get more information about the Golden Wok, please? I've read really good reviews.",
+        "expected_actions": ["Search[name=='golden wok']"],
+        "expected_finish": "Excellent, the Golden Wok is a Chinese establishment located on the north part of the city, and they serve traditional Chinese meals. Would you like to have more information? ",
+        "gold_entities": {
+            "name": "golden wok"
+        }
+    },
+    {
+        "id": "restaurant_057",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Hello, I'd like to have dinner in a French bistro around the city centre.\nSystem: Excellent choice. Cote is a French restaurant and matches all your requests. Would you like me to book a table?\nUser: Yes please, book a table for two at 8 pm.",
+        "expected_actions": [],
+        "expected_finish": "Your reservation for two at Cote restaurant at 8 pm has been done.",
+        "gold_entities": {
+            "name": "cote"
+        }
+    },
+    {
+        "id": "restaurant_058",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Good morning, we'd like to have a reservation in a Portuguese establishment in the city centre. Thanks.\nSystem: Sure, Nandos city centre is the best option for you. Would you like me to book a table?\nUser: Yes please, we are three and would like to have some lunch at 12 pm.",
+        "expected_actions": [],
+        "expected_finish": "Sorry for the inconvenience, the establishment is complete at 12 pm. Would you like to book at another time?",
+        "gold_entities": {
+            "name": "nandos city centre"
+        }
+    },
+    {
+        "id": "restaurant_059",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Hello, as we want to taste some nice European wines, we want a reservation at Darrys Cookhouse and Wine shop. Thanks.\nSystem: Excellent idea. To be able to make the reservation I would need the number of diners and the time.\nUser: Sure, we are six people and would like to arrive at 7 pm. Thanks.",
+        "expected_actions": [],
+        "expected_finish": "The reservation for six at Darrys Cookhouse and Wine shop at 7 pm has been done successfully.",
+        "gold_entities": {
+            "name": "darrys cookhouse and wine shop"
+        }
+    },
+    {
+        "id": "restaurant_060",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Hi, we'd like to try Indian cuisine. As we are around the north area we'd like a reservation on that part of the city. Thanks.\nSystem: Sure, there is a restaurant called Royal spice. Would you like to book a table?\nUser: Yes, we're five, and we'd like to have dinner at 9 pm. Thanks.",
+        "expected_actions": [],
+        "expected_finish": "Good. Your reservation has been done, and the reference number is the following: AGHY778.",
+        "gold_entities": {
+            "name": "royal spice"
+        }
+    },
+    {
+        "id": "restaurant_061",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Hi, we're in the mood of having a snack and sharing some Mediterranean dishes near the city centre. As it is a crowded part, we'd also like to book a table. Thanks!\nSystem: Sure, the Gardenia is the best option for you. How many of you are? \nUser: We'd like a table for four at 12 pm. Thanks.",
+        "expected_actions": [],
+        "expected_finish": "Your table in the Gardenia has been successfully booked for four at 12 pm.",
+        "gold_entities": {
+            "name": "the gardenia"
+        }
+    },
+    {
+        "id": "restaurant_062",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: As we've seen excellent reviews from Wagamama, we don't want to miss the chance to try their Japanese cuisine. It would be nice to have some reservation for today at 8 pm.\nSystem: Excellent idea. How many diners are you? \nUser: We'd like a table for three, thanks.",
+        "expected_actions": [],
+        "expected_finish": "Sure. Your reservation has been successfully booked.",
+        "gold_entities": {
+            "name": "wagamama"
+        }
+    },
+    {
+        "id": "restaurant_063",
+        "domain": "restaurant",
+        "intent": "REQUEST:BOOK",
+        "history": "User: Hello, I'd like to have a table for this evening at Bangkok city for five diners.\nSystem: Sure. At what time do you want to make the reservation?\nUser: If possible at 7 pm. Thanks!",
+        "expected_actions": [],
+        "expected_finish": "The reservation at Bangkok city for today's evening at 7pm has been confirmed.",
+        "gold_entities": {
+            "name": "bangkok city"
+        }
+    },
+    {
+        "id": "restaurant_064",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Hello, I've tried la Mimosa, a Mediterranean cuisine restaurant in the city centre, and I've really enjoyed it. Would you please give me another similar recommendation? Thanks.",
+        "expected_actions": ["Search[food=='mediterranean' and area=='centre']"],
+        "expected_finish": "Sure, Shiraz restaurant match your requests, it's a Mediterranean restaurant located in the city centre.",
+        "gold_entities": {
+            "food": "mediterranean",
+            "area": "centre"
+        }
+    },
+    {
+        "id": "restaurant_065",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Hi, where do we find an establishment similar to Cote restaurant? We'd love to eat French food again as we really enjoy it. Thanks!",
+        "expected_actions": ["Search[food=='french']"],
+        "expected_finish": "Good choice, there's another French establishment called restaurant Two Two. Would you like more information regarding the area or price?",
+        "gold_entities": {
+            "food": "mediterranean"
+        }
+    },
+    {
+        "id": "restaurant_066",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: I've tried De Luca cucina and bar, a modern European establishment, and now I'd like to find another similar restaurant also in the city centre. Can you help me, please? Thanks." ,
+        "expected_actions": ["Search[food=='modern european' and area=='centre']"],
+        "expected_finish": "Sure, for your request I'd suggest Riverside brasserie. Would you like more information?",
+        "gold_entities": {
+            "food": "modern european",
+            "area": "centre"
+        }
+    },
+    {
+        "id": "restaurant_067",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Hello, I'd like to find an establishment like the Varsity restaurant, which is international, and it's located in the city centre. Thanks." ,
+        "expected_actions": ["Search[food=='international' and area=='centre']"],
+        "expected_finish": "You should try Bloomsbury restaurant, because it matches all your requests. Would you like to have more information about it?",
+        "gold_entities": {
+            "food": "international",
+            "area": "centre"
+        }
+    }, 
+    {
+        "id": "restaurant_068",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Hi, I liked the Indian establishment called the Nirala on the north part of the city. Can you find something similar, but cheaper in the same area and type of food? Thanks." ,
+        "expected_actions": ["Search[food=='indian' and area=='north' and pricerange=='cheap']"],
+        "expected_finish": "I found Royal Spice which is a cheap Indian restaurant located in the city north. Would you like more information?",
+        "gold_entities": {
+            "food": "indian",
+            "area": "north",
+            "pricerange": "cheap"
+        }
+    },
+    {
+        "id": "restaurant_069",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Good morning, we'd like to have another option for British food in the city centre a part from The Oak Bistro, which we already tried. Thanks." ,
+        "expected_actions": ["Search[food=='british' and area=='centre']"],
+        "expected_finish": "Sure, here is another option for your request: The Copper Kettle.",
+        "gold_entities": {
+            "food": "british",
+            "area": "centre"
+        }
+    },
+    {
+        "id": "restaurant_070",
+        "domain": "restaurant",
+        "intent": "INFORM:GET",
+        "history": "User: Hello, we know that in the city centre is not easy to have nice cheap restaurants, but can you try to find one for us, please? We tried Charlie Chan and we'd like some similar asian establishment. Thanks." ,
+        "expected_actions": ["Search[area=='centre' and pricerange=='cheap']"],
+        "expected_finish": "Good, there is a large variety of food type in the city centre, and I'd suggest Kohinoor, an Indian establishment.",
+        "gold_entities": {
+            "pricerange": "cheap",
+            "area": "centre"
+        }
+    }
+
+
+    
+]
+

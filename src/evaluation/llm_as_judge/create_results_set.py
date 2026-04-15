@@ -149,7 +149,7 @@ def save_results(results_file: PathLike, ids: list, feedback: list, scores: list
 
 if __name__ == "__main__":
     instructions, responses, rubrics, reference_answers, ids = create_results(
-        results_file="evaluation/results_rest_blind_5.json", 
+        results_file="evaluation/results_1_8b.json", 
         gold_standard="gold_standard/restaurants_gold.json"
     )
     print(f"Loaded {len(instructions)} examples")

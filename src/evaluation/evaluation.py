@@ -15,7 +15,7 @@ from groq import Groq
 from openai import OpenAI
 import time
 
-from react import react_process, TravelScene
+from react_api import react_process, TravelScene
 from hotel_scene.prompt_hotel import load_prompt as load_hotel_prompt
 from restaurant_scene.prompt_restaurant import load_prompt as load_restaurant_prompt
 from all_in_context_main import clean_hotels, clean_restaurants
@@ -25,7 +25,7 @@ client = OpenAI(
     api_key=os.getenv("FIREWORKS_API_KEY"),
     base_url="https://api.fireworks.ai/inference/v1"
 )
-MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct"
+MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct" #"accounts/agm5602-9kyhyvpg8dkb/models/mi-modelo-react#accounts/agm5602-9kyhyvpg8dkb/deployments/j6u728bf"
 API_URL = os.getenv("API_URL")
 
 def run_blind(history, domain):

@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import argparse
-from react import react_process, TravelScene
+from react_api import react_process, TravelScene
 from dotenv import load_dotenv
 
 parser = argparse.ArgumentParser()
@@ -17,6 +17,7 @@ else:
     from restaurant_scene.prompt_restaurant import load_prompt
 
 from openai import OpenAI
+from groq import Groq
 
 load_dotenv()
 
@@ -30,7 +31,7 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1"
 )'''
 API_URL = os.getenv("API_URL")
-MODEL = "accounts/fireworks/models/llama-v3p3-70b-instruct" #meta-llama/llama-3.3-70b-instruct:free" #llama-3.3-70b-versatile
+MODEL = "accounts/agm5602-9kyhyvpg8dkb/models/mi-modelo-react"
 SYSTEM_PROMPT = load_prompt()
 
 if __name__ == "__main__":

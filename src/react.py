@@ -5,7 +5,9 @@ import os
 from typing import Literal
 import pandas as pd
 import re
+import time
 import requests as req
+from vllm import LLM
 
 
 class TravelScene:
@@ -97,7 +99,7 @@ def react_process(prompt: str,
                 question: str,
                 scene: TravelScene,
                 client: str = None,
-                model: str = None,
+                model: any = None,
                 verbose: bool = True,
                 max_rounds: int = 8) -> dict:
 
@@ -105,20 +107,36 @@ def react_process(prompt: str,
     forced_finish = False
     num_rounds: int
 
-    def llm(start_text: str, stop: list[str] = None) -> str:
-        response = client.chat.completions.create(
-            model = model,
-            messages = [{'role': 'user', 'content': start_text}],
-            max_tokens = 200,
-            stop=stop[:4] if stop else None,
-            temperature=0
-        )
-        result = response.choices[0].message.content
-        # Avoid the trailing end of the "User:", "Observation:", etc.
-        for s in stop:
-            if result.endswith(s):
-                result = result[:result.rfind(s)]
-        return result
+    use_vllm = isinstance(model, LLM)
+
+    if use_vllm:
+        from vllm import SamplingParams as SP
+        def llm(start_text: str, stop: list[str] = None) -> str:
+                sp = SP(temperature=0, max_tokens=200, stop=stop[:4] if stop else None)
+                outputs = model.generate([start_text], sp, use_tqdm=False)
+                result = outputs[0].outputs[0].text
+                for s in (stop or []):
+                    if result.endswith(s):
+                        result = result[:result.rfind(s)]
+                return result
+    else:
+        if client is None:
+            raise ValueError("Error")
+        def llm(start_text: str, stop: list[str] = None) -> str:
+            response = client.chat.completions.create(
+                model = model,
+                messages = [{'role': 'user', 'content': start_text}],
+                max_tokens = 200,
+                stop=stop[:4] if stop else None,
+                temperature=0
+            )
+            time.sleep(1)
+            result = response.choices[0].message.content
+            # Avoid the trailing end of the "User:", "Observation:", etc.
+            for s in stop:
+                if result.endswith(s):
+                    result = result[:result.rfind(s)]
+            return result
     
     previous_text = prompt + "\n" + question + '\n'
     num_calls, num_badcalls = 0, 0
@@ -149,6 +167,11 @@ def react_process(prompt: str,
             if verbose: print("  \033[33;1;22mThought " + str(i) + "\033[0m: " + thought[-150:].replace('\n', ' ') + "\n  \033[33;1;22mAction " + str(i) + "\033[0m: " + action) # Backup thought and action print (yellow thought and action)
 
         observation, is_done, return_code = scene.action(action) # Execute the action
+        if action.strip().lower() == "look[]":
+            look_count = sum(1 for step in dialogue.values() if step.get('action', '').strip().lower() == 'look[]')
+            if look_count >= 1:
+                observation = "You have already used Look[]. Use Search[query] with specific criteria or Finish[answer]."
+                return_code = 1
         observation = observation.replace('\\n', '')
         if verbose and not is_done:
             match return_code:
